@@ -1,0 +1,8 @@
+Main-Class: com.moderneinstein.logical.numerical.Interface  
+Implementation-Version: 2.6
+Implementation-Vendor: Paul Owei
+Implementation-Title: numerical-analysis
+Sealed: true
+Specification-Version: 2.6
+Specification-Vendor: Paul Owei
+Specification-Title: numerical-analysis
