@@ -43,6 +43,7 @@ import java.io.FileNotFoundException  ;
 import java.io.OutputStreamWriter ; 
 import java.io.PrintWriter ; 
 import java.io.BufferedWriter ; 
+
 public class Caller{
         public static Double[][] tests = new Double[][]{new Double[]{8.7,18.82091},new Double[]{8.6,18.50515}
         , new Double[]{8.3,17.56492},new Double[]{8.1,16.94410}} ;
@@ -53,29 +54,32 @@ public class Caller{
         public static String callFunct = new String("R" ) ;
         public static String delim = new String(":") ; 
         public static double testVal = 8.8  ;
-      public static File createFile(){
-        File file4 = new File("") ;
-        BufferedWriter writer2  = null ; 
-        OutputStream stream1 = null ; 
-        OutputStreamWriter stream2 = null ;
-        try{
+      public static File createFile() throws IOException {
        // String string1 = Interpolation.class.getName() ;
         String string1 = new String(calledString)  ;
-         file4 = new File(string1) ;
+        File  file4 = new File(string1) ;
           file4.createNewFile() ;
         String value2  = parseFile(file4) ; 
-         stream1 = new FileOutputStream(file4,false) ; 
-        PrintStream writer1 = new PrintStream(stream1,false)  ; 
+        OutputStream stream1 = new FileOutputStream(file4,true) ; 
+        PrintStream writer1 = new PrintStream(stream1,true)  ; 
         System.setOut(writer1) ;
          writer1.print(value2) ;
-        writer2 = new BufferedWriter(new OutputStreamWriter(stream1)) ;;
-        }catch(IOException exception){
-            System.err.println(exception.getMessage()) ; 
-            exception.printStackTrace() ;
-       }
+        BufferedWriter writer2 = new BufferedWriter(new OutputStreamWriter(stream1)) ;;
        stream = System.out ;
         return file4 ;
     }
+    /**
+     * catch(IOException exception){
+            System.err.println(exception.getMessage()) ; 
+            exception.printStackTrace() ;
+       }
+       try {{}}
+     */
+    /**
+     *   BufferedWriter writer2  = null ; 
+        OutputStream stream1 = null ; 
+        OutputStreamWriter stream2 = null ;
+     */
     public static void callFunction(){
         List<Pair<Double,Integer>> function1 
         = new LinkedList<Pair<Double,Integer>>() ;
@@ -84,8 +88,9 @@ public class Caller{
         for(int v=0;v<tests.length;v++){
             serd= tests[v] ; 
             buffer1.add(serd) ;
-        }
-       function1 = Interpolation.lagrange(buffer1) ;
+        }  
+        String[] linear = new String[]{new String()} ;
+       function1 = Interpolation.lagrange(buffer1,linear) ;
        Manipulate.printFunction(callFunct , function1,System.out) ;
        double computed = Manipulate.compute(testVal,function1) ;
        stream.append("The solution to the Lagrange Interpolation problem is ") ;
@@ -116,36 +121,33 @@ public class Caller{
          }
          return new Pair<List<Double[]>,Double>(buffer,value2); 
     }
-    public static String parseFile(File value){
+    public static String parseFile(File value) throws IOException{
         if(value==null){
             return new String("") ;    }
-            String value1 = new String(); 
-            String value2= new String() ;
-            InputStream stream1 ;
-            InputStreamReader stream2 ; 
-            BufferedWriter writer2  ;
-        try{
-             stream1 = new FileInputStream(value) ;
-            stream2 = new InputStreamReader(stream1) ;
+             InputStream stream1 = new FileInputStream(value) ;
+             InputStreamReader stream2 = new InputStreamReader(stream1) ;
             BufferedReader reader1 = new BufferedReader(stream2) ;
+            String value1 = new String() ; 
             while(true){
-                value2 = reader1.readLine() ;
+                String value2 = reader1.readLine() ;
                 if(value2==null){
                     break ; 
                 } 
-             value1 = value1.concat(value2) ; 
+            value1 = value1.concat(value2) ; 
             value1 = value1.concat(new String("\n")) ;    }
             reader1.close() ;
-        }catch(IOException exception) {
-            System.err.println(exception.getMessage()) ;
-            exception.printStackTrace() ;
-        }
        return value1 ; 
     }
+        //   try{
+      /*  }catch(IOException exception) {
+            System.err.println(exception.getMessage()) ;
+            exception.printStackTrace() ;
+        }  */
     public static double solve(List<Double[]> listed,double created){
         List<Pair<Double,Integer>> function
-        = new ArrayList<Pair<Double,Integer>>() ;
-    function = Interpolation.lagrange(listed) ;
+        = new ArrayList<Pair<Double,Integer>>() ;  
+        String[] lights = new String[]{new String()} ;
+    function = Interpolation.lagrange(listed,lights) ;
     Manipulate.printFunction(callFunct,function,System.out) ;
     double computed =  Manipulate.compute(created,function) ;
     stream.append("The solution to the Lagrange Interpolation problem is ") ;
@@ -195,13 +197,13 @@ public class Caller{
         }
         Pair<List<Double[]>,Double> paired  = parseArgs(args,truths[1]) ; 
         List<Double[]> values =  paired.first; 
-        solve(paired.first,paired.second) ; 
+        Caller.solve(paired.first,paired.second) ; 
         return 1 ; 
     }
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args){
+	public static void main(String[] args) throws Exception{
 
       //  Interpolation.printFunction(new String("F"),funct) ;
       PrintStream temp  = System.out; 

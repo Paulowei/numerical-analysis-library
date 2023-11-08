@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.moderneinstein.logical.numerical.AppTest" time="0.062" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.moderneinstein.logical.numerical.ClassTest" time="0.011" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -57,65 +57,23 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="com.moderneinstein.logical.numerical.AppTest" time="0.024"/>
-  <testcase name="trials7" classname="com.moderneinstein.logical.numerical.AppTest" time="0.019">
+  <testcase name="trials5" classname="com.moderneinstein.logical.numerical.ClassTest" time="0.008">
     <system-out><![CDATA[The value of the function is : 
-2.0z^0+ 1.0z^1+ 2.0z^2+ 1.0z^3
+2.0z^0+ 2.0z^1+ 2.0z^2+ 2.0z^3
 
 The starting value is : 0.0
 X : 0.0
  The Solution of the function is : 
--2.0
+-1.0
 
-
- The values provides were :  
-[ 
-[ 2.0 , 0.0 ]
-[ 1.0 , 1.0 ]
-[ 2.0 , 2.0 ]
-[ 1.0 , 3.0 ]
- ] 
+[[ 2.0 : 0 ], [ 2.0 : 1 ], [ 2.0 : 2 ], [ 2.0 : 3 ]]
 The value of  The function is ...  
--1.0R^0+1.0R^1
-The value of  The function is ...  
-2.0R^0+-3.0R^1+1.0R^2
-The value of  The function is ...  
--2.0R^0+5.0R^1+-4.0R^2+1.0R^3
-The value of  The function is ...  
--InfinityR^0+InfinityR^1+-InfinityR^2+InfinityR^3
-The value of  The function is ...  
-NaNR^0+NaNR^1+NaNR^2+NaNR^3
-The value of  The function is ...  
--2.0R^0+1.0R^1
-The value of  The function is ...  
-4.0R^0+-4.0R^1+1.0R^2
-The value of  The function is ...  
--4.0R^0+8.0R^1+-5.0R^2+1.0R^3
-The value of  The function is ...  
--InfinityR^0+InfinityR^1+-InfinityR^2+InfinityR^3
-The value of  The function is ...  
-NaNR^0+NaNR^1+NaNR^2+NaNR^3
-The value of  The function is ...  
--2.0R^0+1.0R^1
-The value of  The function is ...  
-2.0R^0+-3.0R^1+1.0R^2
-The value of  The function is ...  
--2.0R^0+5.0R^1+-4.0R^2+1.0R^3
-The value of  The function is ...  
--InfinityR^0+InfinityR^1+-InfinityR^2+InfinityR^3
-The value of  The function is ...  
-NaNR^0+NaNR^1+NaNR^2+NaNR^3
-The value of  The function is ...  
--2.0R^0+1.0R^1
-The value of  The function is ...  
-2.0R^0+-3.0R^1+1.0R^2
-The value of  The function is ...  
--4.0R^0+8.0R^1+-5.0R^2+1.0R^3
-The value of  The function is ...  
--InfinityR^0+InfinityR^1+-InfinityR^2+InfinityR^3
-The value of  The function is ...  
-NaNR^0+NaNR^1+NaNR^2+NaNR^3
-
+2.0x^0+2.0x^1+2.0x^2+2.0x^3
+The starting value is : 0.0
+Left : -1.0
+Right : -1.0
+Middle : -1.0
+The solution to the equation is :-1.0
 ]]></system-out>
   </testcase>
 </testsuite>
