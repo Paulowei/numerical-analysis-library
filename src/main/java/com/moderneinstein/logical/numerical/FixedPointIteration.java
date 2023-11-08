@@ -96,8 +96,8 @@ class FixedPointIteration extends Object implements Cloneable {
     int maximum,List<Pair<Double,Integer>> function,String[] holder){
         int length = function.size() ; 
         List<Pair<Double,Integer>> conjugate = generate(function) ; 
-        Manipulate.appendString(Manipulate.functionToString(TROUGH,function),holder) ;
-        Manipulate.appendString(Manipulate.functionToString(CREST,conjugate),holder) ;
+        Manipulate.appendString(Manipulate.functionToString(TROUGH,function),holder) ; 
+        Manipulate.appendString(Manipulate.functionToString(CREST,conjugate),holder) ;  
         startVal = iterate(startVal,search,15,conjugate,holder ) ; 
         int iterations = 0  ;
         double recent = 0.0  ; 
