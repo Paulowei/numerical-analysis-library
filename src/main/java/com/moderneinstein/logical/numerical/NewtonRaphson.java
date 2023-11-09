@@ -42,7 +42,7 @@ public class NewtonRaphson extends Object implements Cloneable {
     public static PrintStream  current =  stream  ; 
     public static PrintStream   custom  ; 
     public static String fileName= new  String("NewtonRaphson.txt") ;  
- 
+    public static String types[] = new String[]{"x","y","z" }  ; 
     public static void flatten(Map<Integer,Double> digitMap,List<Pair<Double,Integer>> function){
         Pair<Double,Integer> tempPair = new Pair<Double,Integer>() ; 
         int length = digitMap.size() ; 
@@ -59,29 +59,30 @@ public class NewtonRaphson extends Object implements Cloneable {
            // double newVal = functVal ; 
            //  double otherVal = compute(starter,conjugate)  ; 
            // double functVal = 0.0 ;
-           //    functVal = compute(starter,function) ; 
+           //    functVal = compute(starter,function) ;   
     public static double NewtonRaphson(double starter,double limit,int repititions,List<Pair<Double,Integer>> function,String[] buffer){
         Pair<Double,Integer> paired = new Pair<Double,Integer>() ; 
         List<Pair<Double,Integer>> conjugate = Functional.differentiate(function) ;
         Manipulate.appendString(new String("The starting value is : ")+starter+ new String("\n"),buffer) ;
         int lapse = 0 ; 
-        Manipulate.printFunction(new String("z"),function ,stream) ;
+        Manipulate.appendString(Manipulate.functionToString(types[1],function ),buffer) ;
         while(true){
             double  functVal = Manipulate.compute(starter,function) ; 
             double otherVal = Manipulate.compute(starter,conjugate) ;
             if(Math.abs(functVal)<Math.abs(limit)){
                 break ;      }
             double alter = functVal/otherVal ; 
-            Manipulate.appendString(new  String("X : ")+ starter+new String("\n"),buffer ) ; 
+            Manipulate.appendString(types[1]+ starter+new String("\n"),buffer ) ; 
             starter =  starter-alter ; 
             lapse = lapse+ 1; 
             if(lapse>repititions){
                 break ; }    }
-        Manipulate.appendString(" The Solution of the function is : \n",buffer) ;
-        Manipulate.appendString( Double.toString(starter)+new String("\n"),buffer) ; 
+        Manipulate.appendString(" The Solution of the function is : \n",buffer)  ;
+        Manipulate.appendString( Double.toString(starter)+new String("\n"),buffer)  ; 
             return starter;
     }
-    
+    //  Manipulate.printFunction(new String("z"),function ,stream) ;  
+    //   Manipulate.appendString(new  String("X : ")+ starter+new String("\n"),buffer ) ; 
 }
   //  @Override
   /* 
