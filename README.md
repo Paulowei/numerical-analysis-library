@@ -20,8 +20,8 @@ Including NewtonRaphson Iteration , Bisection Iteration, FixedPointIteration  , 
 
 - As for the remaining types of iteration , polynomials are expressed as arrays of pairs of double values (List<double[]>) 
 - The first value in each pair represents the co-efficient of that term , and the second value represents the power of x in that term ;
-- So the polynomial  2x^3 + 3x^4 + 4x^5  will be represented as  2:3 3:4 4:5 , likewise the polynomial 4x^2 + 3x^3 + 5x^4 
-- could be represented   4:2 3:3 5:4  , in any order, as there are alogrithms that will handle the sorting accordingly ;
+- So the polynomial  2x^3 + 3x^4 + 4x^5  will be represented as  2:3 3:4 4:5 , likewise the polynomial 4x^2 + 3x^3 + 2x^4 
+- could be represented   4:2 3:3 2:4  , in any order, as there are alogrithms that will handle the sorting accordingly ;
 -  
 - To perform   Bisection iteration with the following pairs of x:y values (2:3 3:4 4:5) ;
 - java -jar "numerical-analysis-2.6.jar" "Bisection" 2:3 3:4 4:5
