@@ -20,10 +20,13 @@ Including NewtonRaphson Iteration , Bisection Iteration, FixedPointIteration  , 
   
 - To interact with the terminal ;
 - Use the following command ;
+- As for Lagrange interpolation,  polynomials are expressed as arrays of pairs of double values (List<double[]>) 
 - To perform lagrange  interpolation with the following pairs of x:y values (2:3 3:4 4:5) ;
 - java -jar "numerical-analysis-2.6.jar" "Interpolation" 2:3 3:4 4:5
 
-- As for the remaining types of iteration , polynomials are expressed as arrays of pairs of double values (List<double[]>) 
+- As for the remaining types of iteration , polynomials are expressed as arrays of pairs of double and integer values (List<Pair<Double,Integer>>)
+- The Pair class (com.moderneinstein.logical.numerical.Pair) , it is a central figure within this API , and helps to represent expressions of powers of unknowns  ;
+- For example, The expression 4z^3 could be expressed as Pair<Double,Integer> temps = new Pair<Double,Integer>(4.0,3) , it remains implemented as a Generic Template Object, and it extends Cloneable,Comparable<Pair<N,M>> ; 
 - The first value in each pair represents the co-efficient of that term , and the second value represents the power of x in that term ;
 - So the polynomial  2x^3 + 3x^4 + 4x^5  will be represented as  2:3 3:4 4:5 , likewise the polynomial 4x^2 + 3x^3 + 2x^4 
 - could be represented   4:2 3:3 2:4  , in any order, as there are alogrithms that will handle the sorting accordingly ;
